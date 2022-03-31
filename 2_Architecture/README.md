@@ -8,6 +8,6 @@
 # BEHAVIOUR DIAGRAMS
  ### Low level desigm
  ## sequence diagram
-    uploaded as a pdf file
+    uploaded as a pdf file - https://github.com/Balaji-S-B/M1_MiniProject/blob/main/2_Architecture/Structure_Diagrams/UML%20Sequence%20diagram.pdf
     
  
