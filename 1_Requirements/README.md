@@ -30,6 +30,23 @@ e) Increases Efficiency.
 
 f) Simple and Easy to Use.
 
+## **4W'S and 1H:**
+
+### Who
+This Grade sheet Management System is an application is used by all the students, and staff who are a part of examination cell.
+
+### What:
+Grade sheet Management System is a software that helps to maintain a database that is useful to enter new sheets & record sheets with the respective dates.
+
+### When:
+This Grade sheet System is very useful when there are large no of sheets are entered. It is very tedious to enter the records manually so here this project come into handy.
+
+### Where:
+The Grade sheet system is nowadays essential for schools, colleges, and other organizations. They can use this software as the purpose of sheets issuing and recording.
+
+### How:
+This project is implemented to do the sheet issuing, recording, or searching purpose by entering the student roll number as input.
+
 ## **Swot Analysis:**
 
 ### Strengths:
