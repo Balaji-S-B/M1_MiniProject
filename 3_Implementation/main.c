@@ -123,7 +123,7 @@ int readData(FILE *fp, struct Student students[]){
         strcpy(students[idx].date, line);
 
         fscanf(fp, "%d", &students[idx].sem);
-        fscanf(fp, "%d", &students[idx].total_subjects);
+        fscanf(fp, "%d", &students[idx].total_subjects);        
 
         for (int i = 0; i < students[idx].total_subjects; i++)
         {
@@ -138,8 +138,8 @@ int readData(FILE *fp, struct Student students[]){
 
         fgets(line, 200, fp);
 
-        students[idx].sgpa = (double)atof(line);
-
+        students[idx].sgpa = (double)atof(line);       
+        
         fgets(line, 200, fp);
         idx++;
     }
@@ -228,10 +228,10 @@ int main(){
                 printf("Please enter the Grade(in Caps): ");
                 fgets(student.subject[i].grade, 10, stdin);
                 student.subject[i].grade[strlen(student.subject[i].grade) - 1] = 0;
-
+                
                 printf("Please enter the Credit points: ");
                 scanf("%d", &student.subject[i].credit);
-                fgetc(stdin);
+                fgetc(stdin);                
 
                 student.subject[i].grade_point = returnGradePoint(student.subject[i].grade);
 
@@ -244,18 +244,18 @@ int main(){
             gen_ms_foot(student.sgpa);
             saveData(fp, student);
             break;
-
+        
         case 2:
             displayAllStudents(students, total_students);
             break;
-        case 3:;
+        case 3:
             char rollNo[50];
             printf("\nEnter the Roll no.: ");
             fgets(rollNo, 50, stdin);
             rollNo[strlen(rollNo) - 1] = 0;
             searchStudent(students, total_students, rollNo);
             break;
-
+            
     }
     fclose(fp);
     return 0;

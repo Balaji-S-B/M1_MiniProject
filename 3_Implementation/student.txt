@@ -6,3 +6,84 @@ Mar 31 2022
 U18EII012 ELCTRICALS 0 0 10
 0.00
 
+Balaji
+007
+Mar 31 2022
+1
+3
+u18001 electronics O 10 4
+u18002 Instrumentation A 9 3
+u18003 sensors C 7 4
+8.64
+
+nki
+2
+Mar 31 2022
+1
+1
+u18ooi elec O 10 3
+10.00
+
+hjj
+hjvh
+Mar 31 2022
+1
+1
+mbxv mnvbjvjh O 10 4
+10.00
+
+Balaji
+12
+Mar 31 2022
+1
+1
+u18beio0n Name O 10 3
+10.00
+
+Balaji
+18
+Mar 31 2022
+2
+2
+kjbsbikb sfbsiu O 10 3
+ksjbfisbuv kjsbfjs B 8 4
+8.86
+
+Balaji 
+23
+Mar 31 2022
+1
+2
+jkbkbjkb jhvhjv O 10 4
+bbouffbsg sjgfgj C 7 3
+8.71
+
+Balaji
+jjh
+Mar 31 2022
+2
+1
+kjbjbi kjkbb O 10 4
+10.00
+
+Milky
+207
+Mar 31 2022
+1
+4
+u18eei hello O 10 4
+uiriu bkjbi A 9 3
+bjkib jbvhvy O 10 4
+jbvhbd  bjkijhv O 10 3
+9.79
+
+Balaji SB
+15
+Mar 31 2022
+1
+3
+U18EIE01 ELECTRONICS O 10 4
+U18EIE02 ELECTRONIC SYSTEMS A 9 3
+U18EIE03 INSTRUMENTATION O 10 4
+9.73
+
