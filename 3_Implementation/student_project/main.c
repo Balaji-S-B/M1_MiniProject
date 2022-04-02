@@ -94,56 +94,79 @@ void gen_ms_foot(double sgpa)
 
 // Save data to a file
 
-void saveData(FILE *fp, struct Student student){
-    fprintf(fp, "%s\n", student.name);
-    fprintf(fp, "%s\n", student.rollno);
-    fprintf(fp, "%s\n", student.date);
-    fprintf(fp, "%d\n", student.sem);
-    fprintf(fp, "%d\n", student.total_subjects);
-    for(int i=0; i<student.total_subjects; i++){
-        fprintf(fp, "%s %s %s %d %d\n", student.subject[i].code, student.subject[i].name, student.subject[i].grade, student.subject[i].grade_point, student.subject[i].credit);
-    }
-    fprintf(fp, "%.2f\n\n", student.sgpa);
+void saveData(FILE *fp, struct Student *student){
+    FILE *ft;
+    ft = fopen("student.bin", "ab+");
+    // fprintf(fp, "%s\n", student.name);
+    // fprintf(fp, "%s\n", student.rollno);
+    // fprintf(fp, "%s\n", student.date);
+    // fprintf(fp, "%d\n", student.sem);
+    // fprintf(fp, "%d\n", student.total_subjects);
+    // for(int i=0; i<student.total_subjects; i++){
+    //     fprintf(fp, "%s %s %s %d %d\n", student.subject[i].code, student.subject[i].name, student.subject[i].grade, student.subject[i].grade_point, student.subject[i].credit);
+    // }
+    // fprintf(fp, "%.2f\n\n", student.sgpa);
+     fwrite(student, sizeof(struct Student), 1, ft);
+     fclose(ft);
 }
 
 int readData(FILE *fp, struct Student students[]){
-    int idx=0;
-    char line[200];
-
-    while(fgets(line, 200, fp)){
-        line[strlen(line) - 1] = 0;
-        strcpy(students[idx].name, line);
-
-        fgets(line, 200, fp);
-        line[strlen(line) - 1] = 0;
-        strcpy(students[idx].rollno, line);
-
-        fgets(line, 200, fp);
-        line[strlen(line) - 1] = 0;
-        strcpy(students[idx].date, line);
-
-        fscanf(fp, "%d", &students[idx].sem);
-        fscanf(fp, "%d", &students[idx].total_subjects);        
-
-        for (int i = 0; i < students[idx].total_subjects; i++)
-        {
-            fscanf(fp, "%s", students[idx].subject[i].code);
-            fscanf(fp, "%s", students[idx].subject[i].name);
-            fscanf(fp, "%s", students[idx].subject[i].grade);
-            fscanf(fp, "%d", &students[idx].subject[i].grade_point);
-            fscanf(fp, "%d", &students[idx].subject[i].credit);
-
-        }
-        fgets(line, 200, fp);
-
-        fgets(line, 200, fp);
-
-        students[idx].sgpa = (double)atof(line);       
-        
-        fgets(line, 200, fp);
-        idx++;
+    struct Student student;
+    FILE *ft;
+    ft = fopen("student.bin", "rb");
+    if(ft == NULL){
+        return 0;
     }
-    return idx;
+    printf("student data\n");
+    // int test = fread(&student, sizeof(student), 1, ft);
+    // printf("%d", test);
+    while(fread(&student, sizeof(student), 1, ft) == 1){
+        printf("Name= %s\nrollNo=%s\ndate=%s\n", student.name, student.rollno, student.date);
+        for(int i=0; i<student.total_subjects; i++){
+            printf("code=%s\nname=%s\ngrade=%s\ngp=%d\ncrd=%d\n", student.subject[i].code, student.subject[i].name, student.subject[i].grade, student.subject[i].grade_point, student.subject[i].credit);
+        }
+    }
+    fclose(ft);
+
+
+    // int idx=0;
+    // char line[200];
+
+    // while(fgets(line, 200, fp)){
+    //     line[strlen(line) - 1] = 0;
+    //     strcpy(students[idx].name, line);
+
+    //     fgets(line, 200, fp);
+    //     line[strlen(line) - 1] = 0;
+    //     strcpy(students[idx].rollno, line);
+
+    //     fgets(line, 200, fp);
+    //     line[strlen(line) - 1] = 0;
+    //     strcpy(students[idx].date, line);
+
+    //     fscanf(fp, "%d", &students[idx].sem);
+    //     fscanf(fp, "%d", &students[idx].total_subjects);        
+
+    //     for (int i = 0; i < students[idx].total_subjects; i++)
+    //     {
+    //         fscanf(fp, "%s", students[idx].subject[i].code);
+    //         fscanf(fp, "%s", students[idx].subject[i].name);
+    //         fscanf(fp, "%s", students[idx].subject[i].grade);
+    //         fscanf(fp, "%d", &students[idx].subject[i].grade_point);
+    //         fscanf(fp, "%d", &students[idx].subject[i].credit);
+
+    //     }
+    //     fgets(line, 200, fp);
+
+    //     fgets(line, 200, fp);
+
+    //     students[idx].sgpa = (double)atof(line);       
+        
+    //     fgets(line, 200, fp);
+    //     idx++;
+    // }
+    // return idx;
+    return 0;
 }
 
 void displayAllStudents(struct Student students[], int std_count){
@@ -242,7 +265,7 @@ int main(){
             gen_ms(student);
             gen_ms_mid(student);
             gen_ms_foot(student.sgpa);
-            saveData(fp, student);
+            saveData(fp, &student);
             break;
         
         case 2:
